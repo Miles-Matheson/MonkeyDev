@@ -21,6 +21,18 @@
 			<string>com.apple.product-type.library.dynamic</string>
 			<key>SharedSettings</key>
 			<dict>
+				<key>MonkeyDevRootless</key>
+				<string>YES</string>
+				<key>CODE_SIGNING_ALLOWED</key>
+				<string>NO</string>
+				<key>MonkeyDevDeviceIP</key>
+				<string>localhost</string>
+				<key>MonkeyDevDevicePassword</key>
+				<string>alpine</string>
+				<key>MonkeyDevDevicePort</key>
+				<string>2222</string>
+				<key>MonkeyDevkillProcessOnInstall</key>
+				<string></string>
 				<key>CLANG_ENABLE_OBJC_ARC</key>
 				<string>YES</string>
 				<key>INSTALL_PATH</key>
@@ -38,7 +50,7 @@
 			<array>
 				<dict>
 					<key>ShellScript</key>
-					<string>/opt/MonkeyDev/bin/md --xcbp-logos</string>
+					<string>/opt/MonkeyDev/bin/md_logos --xcbp-logos</string>
 					<key>ShellPath</key>
 					<string>/bin/sh</string>
 					<key>RunOnlyForDeploymentPostprocessing</key>
@@ -60,7 +72,7 @@
 				</dict>
 				<dict>
 					<key>ShellScript</key>
-					<string>/opt/MonkeyDev/bin/md --xcbp</string>
+					<string>/opt/MonkeyDev/bin/md_logos --xcbp</string>
 					<key>ShellPath</key>
 					<string>/bin/sh</string>
 					<key>RunOnlyForDeploymentPostprocessing</key>
