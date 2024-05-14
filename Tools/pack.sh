@@ -52,6 +52,8 @@ function checkApp(){
 	# remove Plugin an Watch
 	rm -rf "${TARGET_APP_PATH}/PlugIns" || true
 	rm -rf "${TARGET_APP_PATH}/Watch" || true
+        rm -rf "${TARGET_APP_PATH}/_CodeSignature" || true
+        rm -rf "${TARGET_APP_PATH}/SC_Info" || true
 
 	/usr/libexec/PlistBuddy -c 'Delete UISupportedDevices' "${TARGET_APP_PATH}/Info.plist" 2>/dev/null
 
