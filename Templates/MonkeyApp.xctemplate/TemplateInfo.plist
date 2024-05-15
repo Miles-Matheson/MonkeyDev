@@ -187,7 +187,7 @@
 		<key>SharedSettings</key>
 		<dict>
 			<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-			<string>8.0</string>
+			<string>12.0</string>
 		</dict>
 	</dict>
 	<key>Components</key>
