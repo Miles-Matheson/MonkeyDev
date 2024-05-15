@@ -6,7 +6,7 @@ export setCmd="set -eo pipefail"
 $setCmd
 
 #导出环境变量
-export PATH=/opt/MonkeyDev/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=/opt/homebrew/bin:/opt/MonkeyDev/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 #脚本名称和版本
 export scriptName="${0##*/}"
