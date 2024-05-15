@@ -3,7 +3,7 @@
 export setCmd="set -eo pipefail"
 $setCmd
 
-export PATH=/opt/MonkeyDev/bin:$MonkeyDevTheosPath/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=/opt/homebrew/bin:/opt/MonkeyDev/bin:$MonkeyDevTheosPath/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 export scriptName="${0##*/}"
 export scriptVer="4.4"
@@ -14,7 +14,7 @@ export MonkeyDevPath="/opt/MonkeyDev"
 #默认设备ip
 export DefaultDeviceIP="localhost"
 #默认端口号
-export DefaultDevicePort="22"
+export DefaultDevicePort="2222"
 
 export userName="${SUDO_USER-$USER}"
 export userGroup=`id -g $userName`
