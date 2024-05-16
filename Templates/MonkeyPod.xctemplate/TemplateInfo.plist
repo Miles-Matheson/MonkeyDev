@@ -91,7 +91,7 @@
 			<key>MonkeyDevPath</key>
 			<string>/opt/MonkeyDev</string>
 			<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-			<string>8.0</string>
+			<string>12.0</string>
 		</dict>
 	</dict>
 	<key>Nodes</key>

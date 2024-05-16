@@ -6,7 +6,7 @@ export setCmd="set -eo pipefail"
 $setCmd
 
 #导出环境变量
-export PATH=/opt/homebrew/bin:/opt/MonkeyDev/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=/opt/MonkeyDev/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 #脚本名称和版本
 export scriptName="${0##*/}"
@@ -342,5 +342,36 @@ userBashProfileFile=`determineUserBashProfileFile`
 addToFileIfMissing "$userBashProfileFile" "^(export)? *MonkeyDevPath=.*" "export MonkeyDevPath=$MonkeyDevPath"
 addToFileIfMissing "$userBashProfileFile" "^(export)? *MonkeyDevDeviceIP=.*" "export MonkeyDevDeviceIP="
 addToFileIfMissing "$userBashProfileFile" "^(export)? *PATH=.*(\\\$MonkeyDevPath\\/bin|${MonkeyDevPath//\//\\/}\\/bin).*" "export PATH=$MonkeyDevPath/bin:\$PATH"
+
+#支持iphoneos command line tools
+iosSdkPlatformPath=`getSdkProperty iphoneos PlatformPath`
+macosSdkPlatformPath=`getSdkProperty macosx PlatformPath`
+
+specificationFile=$(cd $iosSdkPlatformPath/../../.. && pwd)/PlugIns/IDEiOSSupportCore.ideplugin/Contents/Resources/Embedded-Device.xcspec
+
+requireFile "$specificationFile" false
+
+#backup
+requireBackup "$specificationFile"
+
+hasPackageTypeForCommandLineTool=`doesFileContain "$specificationFile" 'com.apple.package-type.mach-o-executable'`
+hasProductTypeForCommandLineTool=`doesFileContain "$specificationFile" 'com.apple.product-type.tool'`
+
+macosxSDKSpecificationsPath=$macosSdkPlatformPath/Developer/Library/Xcode/Specifications
+packageTypesForMacOSXPath="$macosxSDKSpecificationsPath/MacOSX Package Types.xcspec"
+productTypesForMacOSXPath="$macosxSDKSpecificationsPath/MacOSX Product Types.xcspec"
+
+requireFile "$packageTypesForMacOSXPath" false
+requireFile "$productTypesForMacOSXPath" false
+
+if [[ $hasPackageTypeForCommandLineTool != "true" ]]; then
+	machoDict=`readXcodeSpecificationById "$packageTypesForMacOSXPath" "com.apple.package-type.mach-o-executable"`
+	writeDictToSpecification "$specificationFile" "$machoDict"
+fi
+
+if [[ $hasProductTypeForCommandLineTool != "true" ]]; then
+	toolDict=`readXcodeSpecificationById "$productTypesForMacOSXPath" "com.apple.product-type.tool"`
+	writeDictToSpecification "$specificationFile" "$toolDict"
+fi
 
 exit 0

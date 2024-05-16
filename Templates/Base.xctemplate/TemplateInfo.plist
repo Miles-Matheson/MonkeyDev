@@ -19,18 +19,16 @@
 			<string>___PACKAGENAME___</string>
 			<key>SharedSettings</key>
 			<dict>
-				<key>CODE_SIGNING_ALLOWED</key>
-				<string>NO</string>
 				<key>MonkeyDevClearUiCacheOnInstall</key>
 				<string>NO</string>
 				<key>MonkeyDevkillProcessOnInstall</key>
-				<string></string>
+				<string>SpringBoard</string>
 				<key>CODE_SIGN_IDENTITY</key>
 				<string></string>
+				<key>CODE_SIGNING_ALLOWED</key>
+				<string>NO</string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
-                <key>MonkeyDevRootless</key>
-				<string>YES</string>
 				<key>MonkeyDevDeviceIP</key>
 				<string>localhost</string>
 				<key>MonkeyDevDevicePort</key>

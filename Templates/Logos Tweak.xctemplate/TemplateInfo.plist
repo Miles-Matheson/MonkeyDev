@@ -25,14 +25,6 @@
 				<string>YES</string>
 				<key>CODE_SIGNING_ALLOWED</key>
 				<string>NO</string>
-				<key>MonkeyDevDeviceIP</key>
-				<string>localhost</string>
-				<key>MonkeyDevDevicePassword</key>
-				<string>alpine</string>
-				<key>MonkeyDevDevicePort</key>
-				<string>2222</string>
-				<key>MonkeyDevkillProcessOnInstall</key>
-				<string></string>
 				<key>CLANG_ENABLE_OBJC_ARC</key>
 				<string>YES</string>
 				<key>INSTALL_PATH</key>
