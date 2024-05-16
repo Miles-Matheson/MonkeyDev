@@ -5,7 +5,6 @@
 随着 ios 15 越狱的稳定, 无根越狱的使用频率也越来越高, 而原来的MonkeyDev已多年没有更新，现在将MonkeyDev修改并支持无根越狱环境编译打包
 
 
-
 ## 更新Theos
 
 ```
@@ -19,27 +18,8 @@ git clone --recursive https://github.com/theos/theos.git
 
 ```
 下载最新的MonkeyDev的代码放到原来的旧MonkeyDev路径即可，注意保持路径不变
-或者
-只需要将项目 bin/md 文件替换到 本地MonkeyDev/bin目录下即可，注意可执行权限
+解压zip文件 直接替换对应文件即可
 ```
-
-
-
-## 修改项目模板
-
-~/Library/Developer/Xcode/Templates/MonkeyDev/ 指向就是 MonkeyDev安装目录下的/templates
-
-```
-# 是否要使用sudo提权，根本自己MonkeyDev安装目录来来决定
-# 执行以下命令
-sudo /usr/libexec/PlistBuddy -c "Add :Targets:0:SharedSettings:MonkeyDevRootless string YES"  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-sudo /usr/libexec/PlistBuddy -c "Add :Targets:0:SharedSettings:CODE_SIGNING_ALLOWED string NO"  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-sudo /usr/libexec/PlistBuddy -c "Set :Targets:0:SharedSettings:MonkeyDevDeviceIP localhost"  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-sudo /usr/libexec/PlistBuddy -c "Set :Targets:0:SharedSettings:MonkeyDevDevicePassword alpine"  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-sudo /usr/libexec/PlistBuddy -c "Set :Targets:0:SharedSettings:MonkeyDevDevicePort 2222"  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-sudo /usr/libexec/PlistBuddy -c "Set :Targets:0:SharedSettings:MonkeyDevkillProcessOnInstall "  ~/Library/Developer/Xcode/Templates/MonkeyDev/Base.xctemplate/TemplateInfo.plist
-```
-
 
 
 ## 编译DEB
@@ -47,8 +27,6 @@ sudo /usr/libexec/PlistBuddy -c "Set :Targets:0:SharedSettings:MonkeyDevkillProc
 ```
 根据自己的手机是否是rootless越狱设置Build Setting里的MonekDevRootless为 YES 或 NO 即可 
 ```
-
-
 
 ## 感谢MonkeyDev原作者的分享
 
